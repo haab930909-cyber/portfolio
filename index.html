@@ -363,7 +363,7 @@ button { font: inherit; color: inherit; }
 .field { flex: 1; font-size: 13px; color: #9aa6b5; background: #f1f4f8; border-radius: 999px; padding: 7px 12px; }
 
 /* 아래 메뉴 */
-.tabbar { position: relative; z-index: 6; display: grid; grid-template-columns: repeat(4, 1fr); padding: 8px 6px 24px; border-top: 1px solid #e2e7ed; background: #fff; }
+.tabbar { position: relative; z-index: 6; display: grid; grid-template-columns: repeat(5, 1fr); padding: 8px 4px 24px; border-top: 1px solid #e2e7ed; background: #fff; }
 .tabbar button { position: relative; display: grid; justify-items: center; gap: 3px; border: 0; background: none; padding: 0; font-size: 10.5px !important; font-weight: 600; color: #9aa6b5 !important; cursor: pointer; }
 .tabbar svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .tabbar .is-on { color: var(--idea) !important; }
@@ -424,6 +424,94 @@ button { font: inherit; color: inherit; }
 .sw.on { background: var(--idea); }
 .sw.on::after { left: 16px; }
 
+/* 프로필 시트: 더 알아보기 (사진보다 소개 · 취향을 먼저) · 사진 크게 보기 */
+.who img { cursor: zoom-in; }
+.more { display: flex; align-items: center; justify-content: space-between; gap: 8px; width: 100%; border: 0; border-radius: 12px; padding: 8px 12px; background: #f2f8f4; cursor: pointer; text-align: left; }
+.more .mt b { display: block; font-size: 13.5px; color: var(--idea); }
+.more .mt small { display: block; font-size: 11px; color: #6b7684; }
+.more svg { width: 18px; height: 18px; flex: none; fill: none; stroke: var(--idea); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* 7. 더 알아보기 */
+.dbody, .qbody, .fbody, .wbody { flex: 1; min-height: 0; overflow-y: auto; scrollbar-width: none; }
+.dbody::-webkit-scrollbar, .qbody::-webkit-scrollbar, .fbody::-webkit-scrollbar, .wbody::-webkit-scrollbar { display: none; }
+.dbody { display: grid; gap: 9px; align-content: start; padding: 12px 14px; }
+.dhead { display: flex; gap: 12px; align-items: flex-start; }
+.dpic { flex: none; border: 0; padding: 0; background: none; cursor: zoom-in; }
+.dpic img { display: block; width: 60px; height: 60px; max-width: none; border-radius: 50%; object-fit: cover; }
+.dintro p { margin: 6px 0 0; font-size: 12.5px; line-height: 1.55; color: #374151; }
+.dh { display: flex; align-items: baseline; gap: 6px; margin: 4px 0 0; font-size: 13px; font-weight: 800; color: #111827; }
+.dh small { font-size: 10.5px; font-weight: 600; color: #8592a2; }
+.qlist { display: grid; gap: 6px; }
+.qrow { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 5px 8px; align-items: center; padding: 7px 10px; border: 1px solid #e2e7ed; border-radius: 12px; }
+.qrow > b { font-size: 12.5px; }
+.qrow .qv { font-size: 11px; color: #8592a2; }
+.qbtn { border: 0; border-radius: 8px; padding: 4px 9px; background: var(--idea); color: #fff !important; font-size: 11.5px !important; font-weight: 700; white-space: nowrap; cursor: pointer; }
+.qbtn:disabled { background: #9dbfae; cursor: default; }
+.qrow .lock { font-size: 11px; font-weight: 700; color: #9aa6b5; }
+.qrow.open { border-color: #cfe5d8; background: #f7fbf8; }
+.qchips { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px; }
+.qchips span { font-size: 11px; font-weight: 600; color: var(--idea); background: #e5f2ea; border-radius: 999px; padding: 2px 8px; }
+.post { overflow: hidden; border: 1px solid #e2e7ed; border-radius: 14px; background: #fff; }
+.post + .post { margin-top: 10px; }
+.phd { display: flex; align-items: center; gap: 8px; padding: 8px 10px; }
+.phd img, .phd .pme { width: 28px; height: 28px; max-width: none; flex: none; border-radius: 50%; object-fit: cover; }
+.phd .pme { display: grid; place-items: center; background: #2563c9; }
+.phd .pme svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2; }
+.phd b { font-size: 12.5px; }
+.phd small { margin-left: auto; font-size: 10.5px; color: #8592a2; white-space: nowrap; }
+.pimgb { display: block; width: 100%; border: 0; padding: 0; background: none; cursor: zoom-in; }
+.pimgb img { display: block; width: 100%; max-width: none; aspect-ratio: 4 / 3; object-fit: cover; }
+.ptxt { margin: 0; padding: 8px 10px 4px; font-size: 12px; line-height: 1.55; color: #111827; }
+.ptxt a, .wtext a { color: #2563c9; font-weight: 600; text-decoration: none; }
+.pact { display: flex; gap: 12px; padding: 2px 10px 9px; font-size: 11px; color: #8592a2; }
+.dfoot { display: grid; padding: 8px 14px 10px; border-top: 1px solid #e2e7ed; background: #fff; }
+
+/* 8. 가입 질문 */
+.qbody { display: grid; gap: 12px; align-content: start; padding: 10px 14px; }
+.qq { display: flex; align-items: center; gap: 6px; margin: 0 0 6px; font-size: 13.5px; font-weight: 800; }
+.qq em { font-style: normal; font-size: 10px; font-weight: 800; color: #fff; background: var(--idea); border-radius: 5px; padding: 1px 5px; }
+.qq em.opt { color: #485565; background: #eef1f5; }
+.qn { margin-left: auto; font-size: 11px; font-weight: 700; color: var(--idea); }
+.qopts { display: flex; flex-wrap: wrap; gap: 5px; }
+.qo { border: 1px solid #d5dbe3; border-radius: 999px; padding: 4px 10px; background: #fff; font-size: 11.5px !important; font-weight: 600; color: #485565 !important; cursor: pointer; }
+.qo.on { border-color: var(--idea); background: var(--idea); color: #fff !important; }
+.qo.etc { border-style: dashed; color: var(--idea) !important; }
+.qin { display: block; width: 100%; box-sizing: border-box; margin-top: 6px; border: 1px solid #cfd7e1; border-radius: 10px; padding: 6px 10px; font: inherit; font-size: 12px; }
+.qin[hidden] { display: none; }
+.qmsg { margin: 4px 0 0; font-size: 11px; color: #d64545; }
+.qmsg:empty { display: none; }
+.qjob { display: flex; align-items: center; gap: 8px; }
+.qjv { flex: 1; border: 1px solid #cfd7e1; border-radius: 10px; padding: 5px 10px; font-size: 12px; }
+.qnote { display: block; margin-top: 5px; font-size: 10.5px; color: #8592a2; }
+
+/* 9. 친구 · 10. 글쓰기 */
+.pwrite { margin-left: auto; display: flex; align-items: center; gap: 3px; border: 0; border-radius: 999px; padding: 4px 10px; background: var(--idea); color: #fff !important; font-size: 12px !important; font-weight: 700; cursor: pointer; }
+.pwrite svg { width: 14px; height: 14px; fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; }
+.fbody { padding: 10px 12px; background: #f6f8fa; }
+.wbody { display: grid; gap: 10px; align-content: start; padding: 12px 14px; }
+.wtext { min-height: 80px; padding: 10px 12px; border: 1px solid #cfd7e1; border-radius: 12px; font-size: 13px; line-height: 1.6; }
+.wphoto { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 0 10px; align-items: center; padding: 10px 12px; border: 1.5px dashed #b9c4d0; border-radius: 12px; }
+.wphoto span { grid-row: span 2; width: 40px; height: 40px; border-radius: 10px; background: #eef1f5; display: grid; place-items: center; }
+.wphoto svg { width: 22px; height: 22px; fill: none; stroke: #6b7684; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.wphoto b { font-size: 12.5px; }
+.wphoto small { font-size: 11px; color: #8592a2; }
+.wvis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.wvis button { border: 1px solid #d5dbe3; border-radius: 10px; padding: 7px 4px; background: #fff; font-size: 12px !important; font-weight: 700; color: #485565 !important; cursor: pointer; }
+.wvis button.is-on { border-color: var(--idea); background: #f2f8f4; color: var(--idea) !important; }
+.wnote { margin: 0; font-size: 11px; line-height: 1.5; color: #8592a2; }
+
+/* 사진 크게 보기 */
+.zoom { position: absolute; inset: 0; z-index: 12; display: grid; place-items: center; align-content: center; gap: 10px; background: rgba(10,14,20,.92); cursor: zoom-out; }
+.zoom[hidden] { display: none; }
+.zoom img { width: 88%; max-width: none; border-radius: 14px; }
+.zoom p { margin: 0; color: #fff; font-size: 13px; font-weight: 700; }
+.zx { position: absolute; top: 52px; right: 14px; width: 34px; height: 34px; border: 0; border-radius: 50%; background: rgba(255,255,255,.18); display: grid; place-items: center; cursor: pointer; }
+.zx svg { width: 16px; height: 16px; fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; }
+
+/* 내 정보: 프로필 질문 · 내 피드로 가는 줄 */
+.mlink { width: 100%; border: 0; background: none; cursor: pointer; text-align: left; }
+.mlink span small { display: block; font-size: 10.5px; font-weight: 500; color: #8592a2; }
+.mlink b { color: var(--idea) !important; }
 /* 눌러 보라는 안내: 휴대폰 위 한 줄 + 아래 메뉴 위 말풍선 (한 번 누르면 사라짐) */
 .meet-hint { display: flex; align-items: center; gap: 6px; margin: 0 0 -4px; font-size: 13.5px; font-weight: 700; color: var(--idea); }
 .meet-hint svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; animation: tap 1.4s ease-in-out infinite; }
@@ -861,7 +949,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div><dt>단계</dt><dd>아이디어 · 미구현</dd></div>
         <div><dt>대상</dt><dd>새로운 만남이 어려운 성인</dd></div>
         <div><dt>지도</dt><dd>네이버 · 카카오 지도 API · 제휴 가게 표시</dd></div>
-        <div><dt>수익 구조</dt><dd>대화 신청 포인트 · 음료 선물 수수료</dd></div>
+        <div><dt>수익 구조</dt><dd>대화 신청 · 프로필 보기 포인트 · 음료 선물 수수료</dd></div>
         <div><dt>핵심 원칙</dt><dd>제휴 가게 안에서만 공개 · 안전 중심</dd></div>
       </dl>
 
@@ -869,7 +957,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <!-- @meet-phone -->
         <div class="meet-col">
         <p class="meet-hint"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11V4.5a1.5 1.5 0 0 1 3 0V10M12 9.5V8a1.5 1.5 0 0 1 3 0v2M15 9.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.7-2.3L3.6 15.4a1.6 1.6 0 0 1 2.4-2.1L9 15.5"/></svg>단추를 눌러 화면을 바꿔 볼 수 있습니다</p>
-        <div class="meet-tabs" role="group" aria-label="화면 바로 보기"><button data-go="map">① 지도</button><button data-go="venue" class="is-on">② 가게 배치도</button><button data-go="profile">③ 프로필 · 신청</button><button data-go="inbox">④ 신청함</button><button data-go="chat">⑤ 대화</button><button data-go="me">⑥ 내 정보</button></div>
+        <div class="meet-tabs" role="group" aria-label="화면 바로 보기"><button data-go="map">① 스팟</button><button data-go="venue" class="is-on">② 가게 배치도</button><button data-go="profile">③ 프로필 · 신청</button><button data-go="detail">④ 더 알아보기</button><button data-go="q">⑤ 가입 질문</button><button data-go="friends">⑥ 친구 피드</button><button data-go="inbox">⑦ 신청함</button><button data-go="chat">⑧ 대화</button><button data-go="me">⑨ 내 정보</button></div>
         <div class="meet-phone" id="meetPhone" aria-label="인스팟 앱 화면 시안">
           <div class="meet-in">
             <div class="island"></div>
@@ -965,6 +1053,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
                 <div class="grab"></div>
                 <div class="who"><img id="mPhoto" src="media/m_harin.jpg" alt=""><div><b id="mName">하린 · 27</b><span class="mchips"><span id="mMbti">ENFP</span><span class="gray" id="mSpot">창가 자리</span></span></div><button class="x" id="pClose" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
                 <p id="mIntro">창가 자리에서 책 읽는 중</p>
+                <button class="more" id="mMore"><span class="mt"><b>더 알아보기</b><small>자기소개 · 피드 · 취미 · 이상형</small></span><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
                 <div class="opts" role="radiogroup" aria-label="신청 방법">
                   <button class="opt" data-gift="1" role="radio" aria-checked="false"><span class="oic"><svg viewBox="0 0 24 24"><path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 9h2a2.5 2.5 0 0 1 0 5h-2M7 3v2M10 3v2M13 3v2"/></svg></span><b>음료와 함께 신청</b><small>아메리카노 4,500원</small><small class="pay">수락하면 결제</small><i class="chk"></i></button>
                   <button class="opt is-on" data-gift="0" role="radio" aria-checked="true"><span class="oic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></span><b>대화 신청</b><small>10포인트</small><small class="pay">수락하면 대화 시작</small><i class="chk"></i></button>
@@ -990,14 +1079,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <!-- 4. 신청함: 받은 신청은 수락 · 거절, 보낸 신청은 결과와 결제 상태 -->
             <section class="mscr" id="scrInbox" hidden>
               <div class="ptop"><b>신청함</b><span class="ptag">카페 온도</span></div>
-              <div class="vbar"><div class="seg" id="boxSeg"><button class="is-on" data-box="in">받은 신청 2</button><button data-box="out">보낸 신청 3</button></div></div>
+              <div class="vbar"><div class="seg" id="boxSeg"><button class="is-on" data-box="in">받은 신청 2</button><button data-box="out">보낸 신청 2</button></div></div>
               <div class="ilist" id="boxIn">
                 <div class="irow" data-i="3"><img src="media/m_jun.jpg" alt=""><div class="ib"><b>준 · 30</b><span class="ik gift">음료와 함께 신청 · 아메리카노</span><small>큰 테이블 · 3분 전</small></div><div class="iact"><button class="iok">수락</button><button class="ino">거절</button></div><p class="ires"></p></div>
                 <div class="irow" data-i="1"><img src="media/m_doyun.jpg" alt=""><div class="ib"><b>도윤 · 29</b><span class="ik">대화 신청</span><small>벽쪽 테이블 · 8분 전</small></div><div class="iact"><button class="iok">수락</button><button class="ino">거절</button></div><p class="ires"></p></div>
               </div>
               <div class="ilist" id="boxOut" hidden>
                 <div class="irow"><img src="media/m_harin.jpg" alt=""><div class="ib"><b>하린 · 27</b><span class="ik gift">음료와 함께 신청 · 아메리카노</span><small class="st ok">수락됨 · 4,500원 결제 완료</small></div></div>
-                <div class="irow"><img src="media/m_seoa.jpg" alt=""><div class="ib"><b>서아 · 26</b><span class="ik">대화 신청</span><small class="st">수락 대기 중</small></div></div>
                 <div class="irow"><img src="media/m_yuna.jpg" alt=""><div class="ib"><b>유나 · 28</b><span class="ik gift">음료와 함께 신청 · 라테</span><small class="st no">거절됨 · 결제되지 않음</small></div></div>
               </div>
               <p class="inote">음료와 함께 온 신청은 수락할 때 상대의 결제가 이루어지고,<br>거절하면 결제되지 않습니다.</p>
@@ -1014,16 +1102,64 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <section class="mscr" id="scrMe" hidden>
               <div class="ptop"><b>내 정보</b></div>
               <div class="mebody">
-                <div class="mecard"><span class="meav"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><div><b>내 프로필</b><small>ISFP · 사진 3장 · 소개 작성됨</small></div><span class="edit">수정</span></div>
-                <div class="mbox"><p class="mh">인증</p><div class="mrow"><span>실명 인증</span><b class="okc">완료</b></div><div class="mrow"><span>성인 인증</span><b class="okc">완료</b></div><div class="mrow"><span>프로필 사진 (필수)</span><b class="okc">등록됨</b></div></div>
-                <div class="mbox"><div class="mrow"><span>포인트</span><b>120P <i class="mbtn">충전</i></b></div><div class="mrow"><span>결제 수단</span><b>카드 1개</b></div></div>
+                <div class="mecard"><span class="meav"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><div><b>내 프로필</b><small>ISFP · 사진 3장 · 자기소개 작성됨</small></div><span class="edit">수정</span></div>
+                <div class="mbox"><button class="mrow mlink" id="meQ"><span>프로필 질문<small>취미 · 특기 · 이상형 · 직업</small></span><b>보기 ›</b></button><button class="mrow mlink" id="meFeed"><span>내 피드<small>글 3개 · 친구 12명</small></span><b>보기 ›</b></button></div>
+                <div class="mbox"><div class="mrow"><span>실명 · 성인 인증</span><b class="okc">완료</b></div><div class="mrow"><span>포인트</span><b><span class="pts">120P</span> <i class="mbtn">충전</i></b></div></div>
                 <div class="mbox"><p class="mh">공개 · 안전</p><div class="mrow"><span>체크인하면 바로 공개</span><button class="sw on" aria-pressed="true" aria-label="체크인하면 바로 공개"></button></div><div class="mrow"><span>신청 받기</span><button class="sw on" aria-pressed="true" aria-label="신청 받기"></button></div><div class="mrow"><span>차단 목록</span><b>1명</b></div><div class="mrow"><span>체크인 기록 (최근 6개월)</span><b>12곳</b></div></div>
               </div>
             </section>
 
+            <!-- 7. 더 알아보기: 자기소개 · 피드는 무료, 취미 · 특기 · 이상형 · 직업은 포인트로 -->
+            <section class="mscr" id="scrDetail" hidden>
+              <div class="vtop"><button class="back" id="dBack" aria-label="프로필로"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><div class="vt"><b id="dName">하린 · 27</b><small id="dSpot">카페 온도 · 창가 자리</small></div><span class="ptag pts">120P</span></div>
+              <div class="dbody">
+                <div class="dhead"><button class="dpic" id="dPic" aria-label="사진 크게 보기"><img id="dPhoto" src="media/m_harin.jpg" alt=""></button><div class="dintro"><span class="mchips"><span id="dMbti">ENFP</span><span class="gray" id="dRel">친구</span></span><p id="dIntro"></p></div></div>
+                <p class="dh">더 알아보기 <small>가입할 때 고른 답 · 포인트로 확인</small></p>
+                <div class="qlist" id="dQs"></div>
+                <p class="dh">피드 <small id="dFeedNote">전체 공개 글</small></p>
+                <div id="dFeed"></div>
+              </div>
+              <div class="dfoot"><button class="meet-send" id="dApply">신청하기</button></div>
+            </section>
+
+            <!-- 8. 가입 질문: 보기에서 고르고, 없으면 기타로 직접 쓰기 · 직업은 공개 여부 선택 -->
+            <section class="mscr" id="scrQ" hidden>
+              <div class="vtop"><button class="back" id="qBack" aria-label="내 정보로"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><div class="vt"><b>프로필 질문</b><small>가입할 때 작성 · 언제든 고칠 수 있어요</small></div></div>
+              <div class="qbody">
+                <div class="qsec" data-max="5"><p class="qq">나의 취미는? <em>필수</em><span class="qn"></span></p><div class="qopts"><button class="qo on">넷플릭스 보기</button><button class="qo">영화 보기</button><button class="qo on">드라마 보기</button><button class="qo on">반려동물 산책</button><button class="qo on">카페 탐방</button><button class="qo">전시 보기</button><button class="qo">러닝</button><button class="qo">요리</button><button class="qo on">사진 찍기</button><button class="qo">독서</button><button class="qo">게임</button><button class="qo etc">+ 기타 직접 쓰기</button></div><input class="qin" placeholder="직접 쓰고 Enter" hidden><p class="qmsg"></p></div>
+                <div class="qsec" data-max="3"><p class="qq">나의 특기는? <em>필수</em><span class="qn"></span></p><div class="qopts"><button class="qo on">요리</button><button class="qo">노래</button><button class="qo">운동</button><button class="qo">그림</button><button class="qo on">사진 보정</button><button class="qo">악기 연주</button><button class="qo">정리정돈</button><button class="qo etc">+ 기타 직접 쓰기</button></div><input class="qin" placeholder="직접 쓰고 Enter" hidden><p class="qmsg"></p></div>
+                <div class="qsec" data-max="3"><p class="qq">나의 이상형은? <em>필수</em><span class="qn"></span></p><div class="qopts"><button class="qo on">키는 상관없어요</button><button class="qo on">다정한 사람</button><button class="qo">대화가 잘 통하는 사람</button><button class="qo">웃음이 많은 사람</button><button class="qo on">동물 좋아하는 사람</button><button class="qo">약속을 잘 지키는 사람</button><button class="qo etc">+ 기타 직접 쓰기</button></div><input class="qin" placeholder="직접 쓰고 Enter" hidden><p class="qmsg"></p></div>
+                <div class="qsec"><p class="qq">직업 <em class="opt">선택</em></p><div class="qjob"><span class="qjv">마케터</span><div class="seg" id="jobSeg"><button data-pub="1">공개</button><button class="is-on" data-pub="0">비공개</button></div></div><small class="qnote">공개해도 상대는 포인트를 써야 볼 수 있어요</small></div>
+              </div>
+              <div class="dfoot"><button class="meet-send" id="qSave">저장하기</button></div>
+            </section>
+
+            <!-- 9. 친구: 서로 친구인 사람의 새 글 (인스타그램 · 블로그처럼) -->
+            <section class="mscr" id="scrFriends" hidden>
+              <div class="ptop"><b>친구</b><span class="ptag" id="fNew">새 글 2</span><button class="pwrite" id="fWrite"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>글쓰기</button></div>
+              <div class="fbody" id="fFeed"></div>
+            </section>
+
+            <!-- 10. 글쓰기: 전체 공개 · 친구 공개 · 비공개, #태그 · @친구 태그 -->
+            <section class="mscr" id="scrWrite" hidden>
+              <div class="vtop"><button class="back" id="wBack" aria-label="친구 피드로"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><div class="vt"><b>새 글</b><small>내 피드에 올리기</small></div></div>
+              <div class="wbody">
+                <div class="wtext" id="wText">오늘 우리 강쥐랑 산책했는데 날씨가 넘 좋았다리 행복한 산책이었다~ <a>#강아지산책</a> <a>#성수</a> <a>@하린</a></div>
+                <div class="wphoto"><span><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.8"/><path d="M21 16l-5-5-8 8"/></svg></span><b>사진 1장</b><small>강아지와 산책한 사진</small></div>
+                <p class="dh">공개 범위</p>
+                <div class="wvis" id="wVis"><button data-v="전체 공개">전체 공개</button><button class="is-on" data-v="친구 공개">친구 공개</button><button data-v="비공개">비공개</button></div>
+                <p class="wnote">#태그로 주제를 달고, @태그로 함께한 친구를 표시합니다. 비공개 글은 나만 볼 수 있습니다.</p>
+              </div>
+              <div class="dfoot"><button class="meet-send" id="wPost">올리기</button></div>
+            </section>
+
+            <!-- 사진 크게 보기 -->
+            <div class="zoom" id="pZoom" hidden><button class="zx" id="zClose" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button><img id="zImg" src="media/m_harin.jpg" alt=""><p id="zCap"></p></div>
+
             <p class="coach" id="coach">아래 메뉴도 눌러 보세요</p>
             <nav class="tabbar" aria-label="앱 메뉴">
-              <button class="is-on" data-tab="map"><svg viewBox="0 0 24 24"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2zM9 4v14M15 6v14"/></svg>지도</button>
+              <button class="is-on" data-tab="spot"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.6-7-12a7 7 0 0 1 14 0c0 5.4-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>스팟</button>
+              <button data-tab="friends"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.8-3.4 3.3-5.3 6.5-5.3s5.7 1.9 6.5 5.3"/><circle cx="17" cy="9" r="2.8"/><path d="M16.5 14.6c2.6.2 4.4 1.9 5 4.9"/></svg>친구<i class="dot"></i></button>
               <button data-tab="req"><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 7l8 6 8-6"/></svg>신청함<i class="dot"></i></button>
               <button data-tab="chat"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg>대화</button>
               <button data-tab="me"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg>내 정보</button>
@@ -1035,12 +1171,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <ol class="steps">
           <li><div><b>제휴 가게에서 QR 체크인</b><span>카페 · 보드게임 카페 · 공방 · 식당 등 제휴 가게 안에서만 시작할 수 있습니다</span></div></li>
           <li><div><b>가게 배치도에서 사람 확인</b><span>체크인한 사람만 배치도 위에 프로필 사진으로 표시되고, 계산대 앞 · 테이블 등 실제로 있는 자리를 따라 움직입니다. 가게를 나가거나 2시간이 지나면 자동으로 사라집니다</span></div></li>
-          <li><div><b>프로필 확인</b><span>사진을 누르면 MBTI · 자기소개 · 지금 있는 자리 확인</span></div></li>
+          <li><div><b>더 알아보기</b><span>사진보다 사람을 먼저 보도록, 자기소개 · 피드는 무료로 보고 취미 · 특기 · 이상형 · 직업은 포인트로 확인</span></div></li>
           <li><div><b>대화 신청 또는 음료와 함께 신청</b><span>포인트로 대화를 신청하거나, 그 가게 음료 한 잔과 함께 신청 · 음료값은 상대가 수락할 때 결제되어 환불이 필요 없음</span></div></li>
           <li><div><b>수락 후 대화 · 바로 인사</b><span>서로 수락하면 대화하고, 같은 가게 안에서 바로 만남</span></div></li>
         </ol>
       </div>
-      <p class="figcap">휴대폰 위 단추로 화면을 바로 볼 수 있고, 직접 눌러 볼 수도 있습니다: 지도에서 가게 고르기 → QR 체크인 → 가게 배치도에서 사람 사진 누르기 → 신청 방법 고르기(음료와 함께 신청 · 대화 신청) → 대화하기. 배치도의 사람들은 계산대와 자리를 오가며 움직이고, 아래 메뉴(신청함 · 대화 · 내 정보)도 눌러 볼 수 있습니다. 인물 사진은 AI로 만든 가상 인물입니다.</p>
+      <p class="figcap">휴대폰 위 단추로 화면을 바로 볼 수 있고, 직접 눌러 볼 수도 있습니다: 지도에서 가게 고르기 → QR 체크인 → 가게 배치도에서 사람 사진 누르기 → 더 알아보기 → 신청 방법 고르기(음료와 함께 신청 · 대화 신청) → 대화하기. 배치도의 사람들은 계산대와 자리를 오가며 움직이고, 아래 메뉴(스팟 · 친구 · 신청함 · 대화 · 내 정보)도 눌러 볼 수 있습니다. 인물 사진은 AI로 만든 가상 인물입니다.</p>
 
       <div class="blocks">
         <div class="block rise">
@@ -1057,6 +1193,14 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <li>성범죄 이력 확인은 법이 허용하는 범위에서 도입을 검토합니다.</li>
           </ul>
         </div>
+        <div class="block wide rise">
+          <h4>프로필 · 피드 설계</h4>
+          <ul>
+            <li>가입할 때 "나의 취미는?"(5개) · "나의 특기는?" · "나의 이상형은?"에 보기를 고르고, 보기에 없으면 직접 씁니다. 세 가지는 필수이고, 직업은 공개 여부를 고를 수 있습니다.</li>
+            <li>사진만 보고 다가가지 않도록 프로필에 '더 알아보기'를 두었습니다. 자기소개와 피드는 무료로 보고, 취미 · 특기 · 이상형 · 직업은 포인트로 확인합니다.</li>
+            <li>피드는 인스타그램 · 블로그처럼 일상을 올리는 곳으로, 전체 공개 · 친구 공개 · 비공개를 고르고 #태그와 @친구 태그를 씁니다. 친구 탭에서는 서로 친구인 사람의 새 글을 봅니다.</li>
+          </ul>
+        </div>
         <div class="block rise">
           <h4>제휴 가게의 이득</h4>
           <ul>
@@ -1069,7 +1213,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="block rise">
           <h4>수익 구조</h4>
           <ul>
-            <li>대화 신청 시 사용하는 포인트</li>
+            <li>대화 신청 · 취미 · 이상형 · 직업 보기에 쓰는 포인트</li>
             <li>음료 선물 결제 수수료 (상대가 수락할 때 결제)</li>
             <li>제휴 가게 수수료 · 지도 노출 광고</li>
           </ul>
@@ -1298,13 +1442,13 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   if (!reduce) setInterval(buy, 3000);
 
   /* @meet-js */
-  /* 05 인스팟 시안: 지도에서 가게 고르기 → QR 체크인 → 가게 배치도의 사람 → 신청 방법 고르기 → 수락 후 대화
-     아래 메뉴(지도 · 신청함 · 대화 · 내 정보)와 휴대폰 위 단추로 각 화면을 바로 볼 수 있음 */
+  /* 05 인스팟 시안: 스팟(지도)에서 가게 고르기 → QR 체크인 → 가게 배치도의 사람 → 더 알아보기 → 신청 방법 고르기 → 수락 후 대화
+     아래 메뉴(스팟 · 친구 · 신청함 · 대화 · 내 정보)와 휴대폰 위 단추로 각 화면을 바로 볼 수 있음 */
   (function () {
     var phone = document.getElementById('meetPhone');
     if (!phone) return;
     function $(id) { return document.getElementById(id); }
-    var scr = { map: $('scrMap'), venue: $('scrVenue'), chat: $('scrChat'), inbox: $('scrInbox'), chats: $('scrChats'), me: $('scrMe') };
+    var scr = { map: $('scrMap'), venue: $('scrVenue'), chat: $('scrChat'), inbox: $('scrInbox'), chats: $('scrChats'), me: $('scrMe'), detail: $('scrDetail'), q: $('scrQ'), friends: $('scrFriends'), write: $('scrWrite') };
     var tabs = phone.querySelectorAll('.tabbar button');
     var venues = [
       { name: '카페 온도', sub: '제휴 카페 · 120m · 22시까지', tag: '혼자 오는 손님이 많은 곳' },
@@ -1312,10 +1456,28 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       { name: '공방 손끝', sub: '제휴 원데이 클래스 · 340m · 21시까지', tag: '오늘 도자기 수업' },
       { name: '한그릇 식당', sub: '제휴 식당 · 180m · 21시까지', tag: '혼밥 바 자리' }
     ];
-    var vi = 0, pick = null, timer = null, gift = false, home = 'venue';
+    var vi = 0, pick = null, timer = null, gift = false, home = 'venue', points = 120;
     var vpins = phone.querySelectorAll('.vpin'), cards = phone.querySelectorAll('.pcard'), pins = phone.querySelectorAll('.pin');
     var vCheck = $('vCheck'), pSheet = $('pSheet'), mSend = $('mSend'), mState = $('mState'), tog = $('meetToggle'), opts = phone.querySelectorAll('.opt');
     var plan = $('mPlan'), people = $('people'), segs = scr.venue.querySelectorAll('.seg button');
+
+    /* 사람마다: 자기소개(무료) · 가입 질문 답(포인트) · 피드 글(무료, 공개 범위에 따라) */
+    var who = [
+      { intro: '창가 자리에서 책 읽는 걸 좋아해요. 요즘은 에세이를 읽고 있어요.', hobby: ['독서', '카페 탐방', '필라테스', '영화 보기', '사진 찍기'], talent: ['손글씨', '요리'], ideal: ['대화가 잘 통하는 사람', '다정한 사람', '키는 상관없어요'], job: '출판사 편집자', friend: true,
+        post: { img: 'media/f_harin.jpg', text: '창가 자리에서 책 한 권. 오후 햇살이 딱 좋았다 <a>#주말독서</a> <a>#카페온도</a>', time: '1시간 전', vis: '친구 공개', like: 18, cmt: 4 } },
+      { intro: '퇴근하고 커피 한 잔 하는 시간을 좋아해요. 주말엔 공원을 걸어요.', hobby: ['산책', '자전거', '드라마 보기', '캠핑', '커피 내리기'], talent: ['요리', '정리정돈'], ideal: ['웃음이 많은 사람', '약속을 잘 지키는 사람', '키는 상관없어요'], job: null,
+        post: { img: 'media/f_doyun.jpg', text: '퇴근길 공원 산책. 바람이 선선해서 좋았다 <a>#퇴근길</a> <a>#산책</a>', time: '어제', vis: '전체 공개', like: 9, cmt: 1 } },
+      { intro: '전시 보는 걸 좋아해서 주말마다 갤러리를 다녀요.', hobby: ['전시 보기', '그림 그리기', '넷플릭스 보기', '카페 탐방', '여행'], talent: ['그림', '사진 보정'], ideal: ['취향을 나눌 수 있는 사람', '다정한 사람', '대화가 잘 통하는 사람'], job: '일러스트레이터', friend: true,
+        post: { img: 'media/f_seoa.jpg', text: '성수 전시 보고 왔어요. 그림 하나하나가 따뜻했다 <a>#전시회</a> <a>#성수</a> <a>@하린</a>', time: '2시간 전', vis: '전체 공개', like: 24, cmt: 6 } },
+      { intro: '노트북 들고 카페를 다니며 일해요. 보드게임 좋아합니다!', hobby: ['보드게임', '러닝', '게임', '영화 보기', '요리'], talent: ['운동', '보드게임 설명'], ideal: ['밝은 사람', '운동 좋아하는 사람', '키는 상관없어요'], job: '웹 개발자',
+        post: { img: 'media/f_jun.jpg', text: '오늘 작업은 카페 온도에서. 커피가 맛있다 <a>#카공</a> <a>#성수카페</a>', time: '30분 전', vis: '전체 공개', like: 7, cmt: 0 } },
+      { intro: '친구랑 맛집 찾아다니는 게 낙이에요. 강아지를 키워요.', hobby: ['맛집 탐방', '반려동물 산책', '드라마 보기', '요가', '쇼핑'], talent: ['요리', '노래'], ideal: ['다정한 사람', '동물 좋아하는 사람', '대화가 잘 통하는 사람'], job: null,
+        post: { img: 'media/f_yuna.jpg', text: '친구 기다리는 중. 오늘 날씨 최고 <a>#성수</a> <a>#약속</a>', time: '15분 전', vis: '전체 공개', like: 11, cmt: 2 } }
+    ];
+    var qs = [['hobby', '취미', 5, '5개'], ['talent', '특기', 5, ''], ['ideal', '이상형', 5, ''], ['job', '직업', 10, '']];
+    var seen = {}; /* 포인트로 열어 본 답: '사람번호-질문' */
+    var feed = [0, 2]; /* 친구 탭: 서로 친구인 사람의 새 글 (하린 · 서아) */
+    var mine = [];
 
     /* 가게 배치도: 좌표는 배치도 그림(300 × 446) 기준. 있는 자리 이름은 프로필에 함께 표시 */
     var W = 300, H = 446, SPEED = 44;
@@ -1329,8 +1491,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     var still = !!(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches), hold = -1;
     /* 대화방에서 '저는 ○○ 쪽이에요'에 쓰는 말 */
     var near = { '창가 자리': '창가', '2인 테이블': '가운데 2인 테이블', '큰 테이블': '큰 테이블', '계산대 앞': '계산대', '벽쪽 테이블': '벽쪽 테이블', '소파 자리': '소파', '음료 받는 곳': '계산대' };
-    /* 대화 목록: 서로 수락한 사람만 (처음엔 음료와 함께 신청해 수락된 하린) */
-    var chats = [{ i: 0, gift: true, last: '저는 창가 쪽이에요. 잠깐 인사드릴게요', time: '3:13', unread: 1 }];
+    /* 대화 목록: 서로 수락한 사람만 */
+    var chats = [{ i: 0, gift: true, last: '저는 창가 쪽이에요. 잠깐 인사드릴게요', time: '3:13', unread: 1, at: '카페 온도' }, { i: 2, gift: false, last: '다음에 또 보드게임 해요!', time: '어제', unread: 0, at: '다이스' }];
 
     function put(i, p, d) {
       var el = pins[i];
@@ -1368,16 +1530,23 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     var gos = document.querySelectorAll('.meet-tabs button');
     /* 휴대폰 위 단추 · 아래 메뉴: 지금 보이는 화면 표시 */
     function syncTabs() {
-      var now = !scr.chat.hidden || !scr.chats.hidden ? 'chat' : !scr.inbox.hidden ? 'inbox' : !scr.me.hidden ? 'me' : !scr.venue.hidden ? (pSheet.hidden ? 'venue' : 'profile') : 'map';
+      var now = 'map';
+      for (var k in scr) if (!scr[k].hidden) now = k;
+      if (now === 'chats') now = 'chat';
+      if (now === 'write') now = 'friends';
+      if (now === 'venue' && !pSheet.hidden) now = 'profile';
       gos.forEach(function (b) { b.classList.toggle('is-on', b.dataset.go === now); });
-      var bar = now === 'chat' ? 'chat' : now === 'inbox' ? 'req' : now === 'me' ? 'me' : 'map';
+      var bar = { map: 'spot', venue: 'spot', profile: 'spot', detail: 'spot', friends: 'friends', inbox: 'req', chat: 'chat', me: 'me', q: 'me' }[now];
       tabs.forEach(function (t) { t.classList.toggle('is-on', t.dataset.tab === bar); });
     }
     function show(n) {
       for (var k in scr) scr[k].hidden = k !== n;
       if (n === 'map' || n === 'venue') home = n;
+      $('pZoom').hidden = true;
       syncTabs();
     }
+    function setPoints(p) { points = p; phone.querySelectorAll('.pts').forEach(function (e) { e.textContent = p + 'P'; }); }
+    function zoom(src, cap) { $('zImg').src = src; $('zCap').textContent = cap || ''; $('pZoom').hidden = false; }
     function selectVenue(i) {
       vi = i;
       vpins.forEach(function (p) { p.classList.toggle('sel', +p.dataset.v === i); });
@@ -1413,8 +1582,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       timer = setTimeout(accepted, 1600);
     }
     function addChat(i, g, last) {
-      var c = chats.filter(function (x) { return x.i === i; })[0];
-      if (!c) chats.unshift({ i: i, gift: g, last: last, time: '3:15', unread: 0 });
+      if (!chats.filter(function (x) { return x.i === i; }).length) chats.unshift({ i: i, gift: g, last: last, time: '3:15', unread: 0, at: venues[vi].name });
       drawChats();
     }
     function openChat() {
@@ -1432,12 +1600,60 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     function drawChats() {
       $('cList').innerHTML = chats.map(function (x) {
         var c = cards[x.i];
-        return '<button class="crow" data-i="' + x.i + '"><img src="' + c.dataset.img + '" alt=""><span class="cm"><b>' + c.dataset.name.split(' · ')[0] + '<small>' + venues[vi].name + '</small></b><span>' + x.last + '</span></span><span class="ct">' + x.time + (x.unread ? '<i>' + x.unread + '</i>' : '') + '</span></button>';
+        return '<button class="crow" data-i="' + x.i + '"><img src="' + c.dataset.img + '" alt=""><span class="cm"><b>' + c.dataset.name.split(' · ')[0] + '<small>' + x.at + '</small></b><span>' + x.last + '</span></span><span class="ct">' + x.time + (x.unread ? '<i>' + x.unread + '</i>' : '') + '</span></button>';
       }).join('');
       $('cList').querySelectorAll('.crow').forEach(function (r) {
         r.addEventListener('click', function () {
           var x = chats.filter(function (y) { return y.i === +r.dataset.i; })[0];
           pick = cards[x.i]; setGift(x.gift); openChat();
+        });
+      });
+    }
+
+    /* 피드 글 한 개 (사진은 누르면 크게) */
+    function postHtml(i, p) {
+      var me = i < 0, c = me ? null : cards[i];
+      var head = me ? '<span class="pme"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></span><b>나</b>' : '<img src="' + c.dataset.img + '" alt=""><b>' + c.dataset.name.split(' · ')[0] + '</b>';
+      return '<article class="post"><div class="phd">' + head + '<small>' + p.time + ' · ' + p.vis + '</small></div>' +
+        (p.img ? '<button class="pimgb" data-src="' + p.img + '" aria-label="사진 크게 보기"><img src="' + p.img + '" alt=""></button>' : '') +
+        '<p class="ptxt">' + p.text + '</p><div class="pact"><span>♡ ' + p.like + '</span><span>댓글 ' + p.cmt + '</span></div></article>';
+    }
+    function bindZoom(root) {
+      root.querySelectorAll('.pimgb').forEach(function (b) { b.addEventListener('click', function () { zoom(b.dataset.src); }); });
+    }
+    function drawFriends() {
+      var html = mine.map(function (p) { return postHtml(-1, p); }).join('') + feed.map(function (i) { return postHtml(i, who[i].post); }).join('');
+      $('fFeed').innerHTML = html; bindZoom($('fFeed'));
+    }
+
+    /* 더 알아보기: 자기소개 · 피드는 무료, 취미 · 특기 · 이상형 · 직업은 포인트로 */
+    var di = 0;
+    function openDetail(i) {
+      di = i; hold = i;
+      var c = cards[i], w = who[i];
+      $('dName').textContent = c.dataset.name; $('dSpot').textContent = venues[vi].name + ' · ' + spot[i];
+      $('dPhoto').src = c.dataset.img; $('dMbti').textContent = c.dataset.mbti;
+      $('dRel').textContent = w.friend ? '친구' : '같은 가게'; $('dIntro').textContent = w.intro;
+      drawQs();
+      var p = w.post, open = w.friend || p.vis === '전체 공개';
+      $('dFeedNote').textContent = w.friend ? '친구라서 친구 공개 글까지 보입니다' : '전체 공개 글 · 친구가 되면 친구 공개 글도 보여요';
+      $('dFeed').innerHTML = open ? postHtml(i, p) : '';
+      bindZoom($('dFeed'));
+      show('detail');
+      scr.detail.querySelector('.dbody').scrollTop = 0;
+    }
+    function drawQs() {
+      var w = who[di];
+      $('dQs').innerHTML = qs.map(function (q) {
+        var key = di + '-' + q[0], val = w[q[0]];
+        if (q[0] === 'job' && !val) return '<div class="qrow"><b>' + q[1] + '</b><span class="qv">상대가 비공개로 설정</span><span class="lock">비공개</span></div>';
+        if (seen[key]) return '<div class="qrow open"><b>' + q[1] + '</b><span class="qv"></span><span></span><div class="qchips">' + [].concat(val).map(function (v) { return '<span>' + v + '</span>'; }).join('') + '</div></div>';
+        return '<div class="qrow"><b>' + q[1] + '</b><span class="qv">' + (q[3] || '가입할 때 고른 답') + '</span><button class="qbtn" data-q="' + q[0] + '" data-p="' + q[2] + '"' + (points < q[2] ? ' disabled' : '') + '>보기 · ' + q[2] + 'P</button></div>';
+      }).join('');
+      $('dQs').querySelectorAll('.qbtn').forEach(function (b) {
+        b.addEventListener('click', function () {
+          var cost = +b.dataset.p; if (points < cost) return;
+          setPoints(points - cost); seen[di + '-' + b.dataset.q] = true; drawQs();
         });
       });
     }
@@ -1453,6 +1669,12 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     $('vBack').addEventListener('click', function () { closeProfile(); show('map'); });
     $('cBack').addEventListener('click', function () { drawChats(); show('chats'); });
     $('pClose').addEventListener('click', closeProfile);
+    $('mMore').addEventListener('click', function () { openDetail(Array.prototype.indexOf.call(cards, pick)); });
+    $('mPhoto').addEventListener('click', function () { zoom(pick.dataset.img, pick.dataset.name); });
+    $('dPic').addEventListener('click', function () { zoom($('dPhoto').src, $('dName').textContent); });
+    $('dBack').addEventListener('click', function () { show('venue'); openProfile(cards[di]); });
+    $('dApply').addEventListener('click', function () { show('venue'); openProfile(cards[di]); });
+    $('pZoom').addEventListener('click', function () { $('pZoom').hidden = true; });
     cards.forEach(function (c) { c.addEventListener('click', function () { openProfile(c); }); });
     pins.forEach(function (p) { p.addEventListener('click', function () { openProfile(cards[+p.dataset.i]); }); });
     segs.forEach(function (b) {
@@ -1471,6 +1693,43 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     });
     mSend.onclick = send;
     opts.forEach(function (o) { o.addEventListener('click', function () { setGift(o.dataset.gift === '1'); resetSend(); }); });
+
+    /* 가입 질문: 정해진 수만큼 고르기 · 기타는 직접 써서 추가 · 직업 공개 여부 */
+    scr.q.querySelectorAll('.qsec[data-max]').forEach(function (sec) {
+      var max = +sec.dataset.max, msg = sec.querySelector('.qmsg'), inp = sec.querySelector('.qin'), box = sec.querySelector('.qopts');
+      function count() { var n = sec.querySelectorAll('.qo.on').length; sec.querySelector('.qn').textContent = n + ' / ' + max; return n; }
+      function bind(b) {
+        b.addEventListener('click', function () {
+          if (b.classList.contains('etc')) { inp.hidden = false; inp.focus(); return; }
+          if (!b.classList.contains('on') && count() >= max) { msg.textContent = max + '개까지 고를 수 있어요. 하나를 빼고 골라 주세요'; return; }
+          msg.textContent = ''; b.classList.toggle('on'); count();
+        });
+      }
+      sec.querySelectorAll('.qo').forEach(bind);
+      inp.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter' || !inp.value.trim()) return;
+        var b = document.createElement('button'); b.className = 'qo'; b.textContent = inp.value.trim();
+        box.insertBefore(b, box.querySelector('.etc')); bind(b); inp.value = ''; inp.hidden = true;
+        if (count() < max) { b.classList.add('on'); count(); } else msg.textContent = max + '개까지 고를 수 있어요. 하나를 빼고 골라 주세요';
+      });
+      count();
+    });
+    var jobs = $('jobSeg').querySelectorAll('button');
+    jobs.forEach(function (b) { b.addEventListener('click', function () { jobs.forEach(function (x) { x.classList.toggle('is-on', x === b); }); }); });
+    $('qBack').addEventListener('click', function () { show('me'); });
+    $('qSave').addEventListener('click', function () { var b = $('qSave'); b.textContent = '저장했습니다'; setTimeout(function () { b.textContent = '저장하기'; show('me'); }, 700); });
+    $('meQ').addEventListener('click', function () { show('q'); });
+    $('meFeed').addEventListener('click', function () { drawFriends(); show('friends'); });
+
+    /* 친구 피드 · 글쓰기 */
+    var vis = '친구 공개', wv = $('wVis').querySelectorAll('button');
+    wv.forEach(function (b) { b.addEventListener('click', function () { vis = b.dataset.v; wv.forEach(function (x) { x.classList.toggle('is-on', x === b); }); }); });
+    $('fWrite').addEventListener('click', function () { show('write'); });
+    $('wBack').addEventListener('click', function () { show('friends'); });
+    $('wPost').addEventListener('click', function () {
+      mine.unshift({ img: null, text: $('wText').innerHTML + ' <span style="color:#8592a2">(사진 1장)</span>', time: '방금', vis: vis, like: 0, cmt: 0 });
+      drawFriends(); show('friends'); $('fFeed').scrollTop = 0;
+    });
 
     /* 신청함: 받은 신청 수락 · 거절, 받은 / 보낸 신청 전환 */
     var boxSeg = $('boxSeg').querySelectorAll('button');
@@ -1497,14 +1756,16 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       b.addEventListener('click', function () { var on = !b.classList.contains('on'); b.classList.toggle('on', on); b.setAttribute('aria-pressed', on ? 'true' : 'false'); });
     });
 
-    /* 아래 메뉴: 누르면 말풍선 안내는 사라짐 */
+    /* 아래 메뉴: 누르면 말풍선 안내와 그 메뉴의 빨간 점은 사라짐 */
     var coach = $('coach');
     tabs.forEach(function (t) {
       t.addEventListener('click', function () {
-        var n = t.dataset.tab;
+        var n = t.dataset.tab, dot = t.querySelector('.dot');
         if (coach) coach.hidden = true;
+        if (dot) dot.hidden = true;
         closeProfile();
-        if (n === 'req') { show('inbox'); var dot = t.querySelector('.dot'); if (dot) dot.hidden = true; }
+        if (n === 'friends') { drawFriends(); show('friends'); }
+        else if (n === 'req') show('inbox');
         else if (n === 'chat') { drawChats(); show('chats'); }
         else if (n === 'me') show('me');
         else show(home);
@@ -1514,18 +1775,17 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       b.addEventListener('click', function () {
         var g = b.dataset.go;
         closeProfile();
-        if (g === 'map') show('map');
-        else if (g === 'venue') show('venue');
+        if (g === 'map' || g === 'venue' || g === 'inbox' || g === 'me' || g === 'q') show(g);
         else if (g === 'profile') { show('venue'); openProfile(cards[0]); setGift(true); resetSend(); }
-        else if (g === 'inbox') show('inbox');
-        else if (g === 'me') show('me');
+        else if (g === 'detail') { pick = cards[0]; openDetail(0); }
+        else if (g === 'friends') { drawFriends(); show('friends'); }
         else { pick = cards[0]; setGift(true); openChat(); }
         syncTabs();
       });
     });
 
     start.forEach(function (p, i) { put(i, p, 0); });
-    drawChats();
+    drawChats(); drawFriends();
     if (!still) { run(1); run(4); }
     /* 처음 열면 사람들이 움직이는 가게 배치도부터 */
     show('venue');
@@ -1535,7 +1795,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       show: show, venue: selectVenue, accepted: accepted,
       still: function () { still = true; plan.classList.add('still'); pins.forEach(function (p) { p.classList.remove('gone', 'walk'); }); start.forEach(function (p, i) { put(i, p, 0); }); spot = ['창가 자리', '이동 중', '2인 테이블', '큰 테이블', '계산대 앞']; },
       profile: function (i, g) { openProfile(cards[i]); if (g) { setGift(true); resetSend(); } },
-      chat: function (i, g) { pick = cards[i]; setGift(!!g); openChat(); }
+      chat: function (i, g) { pick = cards[i]; setGift(!!g); openChat(); },
+      detail: function (i, open) { pick = cards[i]; openDetail(i); (open || []).forEach(function (q) { seen[i + '-' + q] = true; }); if (open) { setPoints(points - 5 * open.length); drawQs(); } },
+      friends: function () { drawFriends(); show('friends'); }
     };
   })();
 /* @meet-js-end */
