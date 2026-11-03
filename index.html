@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="AI 도구를 활용한 기획 · 제작 프로젝트 4건: 윈드플래닛 · 집찾소 · 차곡 · 키캡 키우기">
 <style>body { margin: 0; } [hidden] { display: none !important; }</style>
 </head>
@@ -62,6 +63,8 @@ button { font: inherit; color: inherit; }
 .hero h1 { font-size: clamp(32px, 5vw, 54px); max-width: 15em; margin-top: 12px; }
 .more-idea { margin-top: 18px; background: var(--band); border-radius: 12px; padding: 14px 18px; display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 15px; line-height: 1.6; color: var(--ink-2); }
 .more-idea b { color: var(--ink); white-space: nowrap; }
+.hero-name { margin-top: 14px; font-size: 20px; font-weight: 800; letter-spacing: -.01em; }
+.hero-name span { margin-left: 10px; font-size: 15px; font-weight: 600; color: var(--ink-3); }
 .hero .subtitle { font-size: clamp(22px, 2.6vw, 30px); font-weight: 700; color: var(--ink-2); letter-spacing: -.02em; line-height: 1.4; margin-top: 12px; }
 .hero .intro { max-width: 640px; color: var(--ink-2); font-size: 17.5px; margin-top: 16px; }
 .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 2px solid var(--ink); border-bottom: 1px solid var(--line); margin-top: 40px; }
@@ -79,6 +82,14 @@ button { font: inherit; color: inherit; }
 .icard h3 { font-size: 20px; }
 .icard p { font-size: 14px; color: var(--ink-2); line-height: 1.55; }
 .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+/* 사용 도구: 로고 + 이름 */
+.tool { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.tool img { display: inline-block; width: 16px; height: 16px; flex: none; }
+.tool img + img { margin-left: -1px; }
+.ti { white-space: nowrap; }
+.ti img { display: inline-block; width: 1.05em; height: 1.05em; margin: 0 3px 0 1px; vertical-align: -.17em; }
+.tools { display: flex; flex-wrap: wrap; gap: 3px 10px; }
+.tl b .tool img, .roles .tool img { width: 18px; height: 18px; }
 .tag { font-size: 12px; font-weight: 600; color: var(--ink-2); background: var(--band); border-radius: 6px; padding: 2px 8px; white-space: nowrap; }
 .tag.on { color: #fff; background: var(--c); }
 .th-spend { background: linear-gradient(160deg, #eef8f3, #f4f9ff); }
@@ -642,6 +653,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     <div class="wrap">
       <span class="label">2027 SK 아이젠 1기</span>
       <h1>아이젠 지원 포트폴리오</h1>
+      <p class="hero-name">이현정 <span>2026.11</span></p>
       <p class="subtitle">AI 도구를 활용한 기획 · 제작 프로젝트 4건</p>
       <p class="intro">코딩을 전공하지 않았지만 여러 AI 도구를 연결해 게임 · 웹 서비스 · 모바일 앱 · 상품 연계 게임을 기획하였고, 게임과 웹 서비스는 실제로 동작하는 화면까지 만들었습니다.</p>
       <div class="facts">
@@ -653,7 +665,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <div class="index">
         <a class="icard rise" href="#p1" style="--c:var(--wp)">
           <div class="ithumb"><video muted loop playsinline autoplay preload="metadata" poster="media/v_plaza.jpg" src="media/v_plaza.mp4" aria-label="윈드플래닛 마을 광장 영상"></video></div>
-          <div class="ibody"><span class="inum">01 · 게임</span><h3>윈드플래닛</h3><p>생활 직업 간 거래로 경제가 순환하는 3D 타이쿤 RPG</p><div class="tags"><span class="tag on">개발 중</span><span class="tag">유니티</span></div></div>
+          <div class="ibody"><span class="inum">01 · 게임</span><h3>윈드플래닛</h3><p>생활 직업 간 거래로 경제가 순환하는 3D 타이쿤 RPG</p><div class="tags"><span class="tag on">개발 중</span><span class="tag"><span class="ti"><img src="media/logos/unity.svg" alt="">유니티</span></span></div></div>
         </a>
         <a class="icard rise" href="#p2" style="--c:var(--jip)">
           <div class="ithumb"><img class="cover" src="media/p_jip1.jpg" alt="집찾소 첫 화면" style="object-position:left top"></div>
@@ -682,7 +694,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <dl class="meta">
         <div><dt>기간</dt><dd>2026.10 ~ 진행 중<br>(3D 전환 기준)</dd></div>
         <div><dt>역할</dt><dd>기획 · 연출 · 검수</dd></div>
-        <div><dt>사용 도구</dt><dd>클로드 · 코덱스 CLI · 유니티 · 블렌더 · AI 음성</dd></div>
+        <div><dt>사용 도구</dt><dd class="tools"><span class="tool"><img src="media/logos/claude.svg" alt="">클로드</span><span class="tool"><img src="media/logos/codex.svg" alt="">코덱스 CLI</span><span class="tool"><img src="media/logos/unity.svg" alt="">유니티</span><span class="tool"><img src="media/logos/blender.svg" alt="">블렌더</span><span class="tool"><img src="media/logos/gemini.svg" alt="">AI 음성</span></dd></div>
         <div><dt>작업 기록</dt><dd>506건</dd></div>
         <div><dt>상태</dt><dd>개발 중 · 다중 접속 서버 미구현</dd></div>
       </dl>
@@ -742,9 +754,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="block rise">
           <h4>AI 활용</h4>
           <ul>
-            <li>클로드가 유니티와 블렌더를 직접 제어하여 코드와 3D 작업을 수행합니다.</li>
-            <li>코덱스 CLI로 타이틀 화면 인물과 메뉴 아이콘을 제작하여 게임에 적용하였습니다.</li>
-            <li>직업별 캐릭터 대사는 AI 음성으로 제작하였습니다.</li>
+            <li><span class="ti"><img src="media/logos/claude.svg" alt="">클로드</span>가 <span class="ti"><img src="media/logos/unity.svg" alt="">유니티</span>와 <span class="ti"><img src="media/logos/blender.svg" alt="">블렌더</span>를 직접 제어하여 코드와 3D 작업을 수행합니다.</li>
+            <li><span class="ti"><img src="media/logos/codex.svg" alt="">코덱스 CLI</span>로 타이틀 화면 인물과 메뉴 아이콘을 제작하여 게임에 적용하였습니다.</li>
+            <li>직업별 캐릭터 대사는 <span class="ti"><img src="media/logos/gemini.svg" alt="">AI 음성</span>으로 제작하였습니다.</li>
             <li>저는 방향을 정하고, 결과를 사진과 영상으로 검수한 뒤 다시 지시하는 역할을 맡았습니다.</li>
           </ul>
         </div>
@@ -756,7 +768,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
 
       <div class="wp-two">
-        <button class="shot rise" data-lb="media/p_title.jpg" data-cap="타이틀 화면 · 다섯 생활 직업 인물을 코덱스 CLI로 한 명씩 그려 합성"><img src="media/p_title.jpg" alt="윈드플래닛 타이틀 화면" loading="lazy"><span class="cap">타이틀 화면 · 코덱스 CLI 일러스트</span></button>
+        <button class="shot rise" data-lb="media/p_title.jpg" data-cap="타이틀 화면 · 다섯 생활 직업 인물을 코덱스 CLI로 한 명씩 그려 합성"><img src="media/p_title.jpg" alt="윈드플래닛 타이틀 화면" loading="lazy"><span class="cap">타이틀 화면 · <span class="ti"><img src="media/logos/codex.svg" alt="">코덱스 CLI</span> 일러스트</span></button>
         <div class="shot-col">
           <button class="shot rise" data-lb="media/p_combat.jpg" data-cap="치명타 데미지 숫자와 데미지 스킨"><img src="media/p_combat.jpg" alt="치명타 데미지 숫자 장면" loading="lazy"><span class="cap">치명타 · 데미지 스킨</span></button>
           <button class="shot rise" data-lb="media/p_petbag.jpg" data-cap="몬스터 펫 가방"><img src="media/p_petbag.jpg" alt="몬스터 펫 가방 창" loading="lazy"><span class="cap">몬스터 펫 가방</span></button>
@@ -775,7 +787,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       <dl class="meta">
         <div><dt>기간</dt><dd>2026.06 ~</dd></div>
         <div><dt>역할</dt><dd>기획 · 화면 구성 · 검수</dd></div>
-        <div><dt>사용 도구</dt><dd>코덱스 · 청약 공식 API</dd></div>
+        <div><dt>사용 도구</dt><dd class="tools"><span class="tool"><img src="media/logos/codex.svg" alt="">코덱스</span><span class="tool">청약 공식 API</span></dd></div>
         <div><dt>대상</dt><dd>청약 첫 신청자 · 어르신</dd></div>
         <div><dt>상태</dt><dd>주요 화면 구현 · 출시 전</dd></div>
       </dl>
@@ -1247,10 +1259,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
       <ol class="timeline">
         <li class="tl rise"><i>1</i><b>RPG 쯔꾸르 · 펑크랜드</b><p>도구 기능의 한계로 개발을 중단하였습니다.</p></li>
-        <li class="tl rise"><i>2</i><b>챗지피티</b><p>코드를 받아 붙여 넣는 방식은 규모가 커질수록 오류가 쌓였습니다.</p></li>
-        <li class="tl rise"><i>3</i><b>코덱스</b><p>AI가 파일을 직접 수정하고, 데이터를 엑셀로 정리해 다시 넣는 것을 확인하였습니다.</p></li>
-        <li class="tl rise"><i>4</i><b>클로드</b><p>코드 작업을 클로드로 옮기고, 2D 도트 게임을 3D로 전환하였습니다.</p></li>
-        <li class="tl rise"><i>5</i><b>클로드 + 코덱스 CLI</b><p>코덱스의 이미지 생성 기능을 클로드에 연결하여 하나의 작업 흐름으로 묶었습니다.</p></li>
+        <li class="tl rise"><i>2</i><b><span class="tool"><img src="media/logos/openai.svg" alt="">챗지피티</span></b><p>코드를 받아 붙여 넣는 방식은 규모가 커질수록 오류가 쌓였습니다.</p></li>
+        <li class="tl rise"><i>3</i><b><span class="tool"><img src="media/logos/codex.svg" alt="">코덱스</span></b><p>AI가 파일을 직접 수정하고, 데이터를 엑셀로 정리해 다시 넣는 것을 확인하였습니다.</p></li>
+        <li class="tl rise"><i>4</i><b><span class="tool"><img src="media/logos/claude.svg" alt="">클로드</span></b><p>코드 작업을 <span class="ti"><img src="media/logos/claude.svg" alt="">클로드</span>로 옮기고, 2D 도트 게임을 3D로 전환하였습니다.</p></li>
+        <li class="tl rise"><i>5</i><b><span class="tool"><img src="media/logos/claude.svg" alt=""><img src="media/logos/codex.svg" alt="">클로드 + 코덱스 CLI</span></b><p><span class="ti"><img src="media/logos/codex.svg" alt="">코덱스</span>의 이미지 생성 기능을 <span class="ti"><img src="media/logos/claude.svg" alt="">클로드</span>에 연결하여 하나의 작업 흐름으로 묶었습니다.</p></li>
       </ol>
 
       <div class="duo">
@@ -1258,9 +1270,9 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <h4>역할 분담</h4>
           <table class="roles">
             <tr><th>본인</th><td>기획 · 연출 · 결과 검수 · 작업 기록</td></tr>
-            <tr><th>클로드</th><td>코드 작성, 유니티 · 블렌더 직접 제어</td></tr>
-            <tr><th>코덱스 CLI</th><td>타이틀 일러스트 · 메뉴 아이콘</td></tr>
-            <tr><th>AI 음성</th><td>캐릭터 대사 녹음</td></tr>
+            <tr><th><span class="tool"><img src="media/logos/claude.svg" alt="">클로드</span></th><td>코드 작성, <span class="ti"><img src="media/logos/unity.svg" alt="">유니티</span> · <span class="ti"><img src="media/logos/blender.svg" alt="">블렌더</span> 직접 제어</td></tr>
+            <tr><th><span class="tool"><img src="media/logos/codex.svg" alt="">코덱스 CLI</span></th><td>타이틀 일러스트 · 메뉴 아이콘</td></tr>
+            <tr><th><span class="tool"><img src="media/logos/gemini.svg" alt="">AI 음성</span></th><td>캐릭터 대사 녹음</td></tr>
           </table>
         </div>
         <div class="block rise" style="--c:var(--ink)">
@@ -1275,7 +1287,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       </div>
 
       <div class="block rise" style="--c:var(--ink);margin-top:16px">
-        <h4>코덱스로 제작하여 게임에 적용한 그림</h4>
+        <h4><span><span class="ti"><img src="media/logos/codex.svg" alt="">코덱스</span>로 제작하여 게임에 적용한 그림</span></h4>
         <div class="applied">
           <figure class="ap">
             <button class="ap-stage cast" data-lb="media/p_title.jpg" data-cap="게임 타이틀 화면 · 인물 5명과 작은 몬스터 3마리를 각각 따로 그려 합성" aria-label="타이틀 화면 크게 보기">
@@ -1327,7 +1339,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 
 <footer>
   <div class="wrap">
-    <span>게임 화면은 개발 중인 유니티 버전을 촬영한 것이며, '기획'으로 표시한 항목은 구현 전입니다.</span>
+    <span>게임 화면은 개발 중인 <span class="ti"><img src="media/logos/unity.svg" alt="">유니티</span> 버전을 촬영한 것이며, '기획'으로 표시한 항목은 구현 전입니다.</span>
     <span>2026.11</span>
   </div>
 </footer>
