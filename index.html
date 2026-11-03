@@ -321,16 +321,18 @@ button { font: inherit; color: inherit; }
 .mstate { font-size: 12px; font-weight: 600; color: var(--idea) !important; text-align: center; }
 .mstate:empty { display: none; }
 
-.gift { display: flex; align-items: center; gap: 10px; border: 1.5px solid #e2e7ed; border-radius: 12px; padding: 8px 10px; background: #fff; cursor: pointer; text-align: left; }
-.gift.is-on { border-color: var(--idea); background: #f2f8f4; }
-.gift:disabled { cursor: default; }
-.gic { width: 34px; height: 34px; flex: none; border-radius: 10px; background: #e5f2ea; display: grid; place-items: center; }
-.gic svg { width: 20px; height: 20px; fill: none; stroke: var(--idea); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.gt { flex: 1; min-width: 0; }
-.gt b { display: block; font-size: 13px; }
-.gt small { display: block; font-size: 11px; color: #8592a2; }
-.chk { width: 20px; height: 20px; flex: none; border-radius: 50%; border: 2px solid #cfd7e1; box-sizing: border-box; }
-.gift.is-on .chk { border-color: var(--idea); background: radial-gradient(circle, var(--idea) 0 42%, #fff 46%); }
+/* 신청 방법 고르기: 음료와 함께 신청 / 대화 신청 · 음료값은 상대가 수락할 때 결제 */
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.opt { position: relative; display: grid; justify-items: start; align-content: start; gap: 1px; min-width: 0; border: 1.5px solid #e2e7ed; border-radius: 12px; padding: 8px 10px 9px; background: #fff; cursor: pointer; text-align: left; }
+.opt.is-on { border-color: var(--idea); background: #f2f8f4; }
+.opt:disabled { cursor: default; }
+.oic { width: 26px; height: 26px; margin-bottom: 4px; border-radius: 8px; background: #e5f2ea; display: grid; place-items: center; }
+.oic svg { width: 16px; height: 16px; fill: none; stroke: var(--idea); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.opt b { font-size: 13px; letter-spacing: -.3px; white-space: nowrap; }
+.opt small { font-size: 11px; color: #485565; white-space: nowrap; }
+.opt small.pay { font-size: 10.5px; font-weight: 700; color: var(--idea); }
+.chk { position: absolute; top: 9px; right: 9px; width: 18px; height: 18px; border-radius: 50%; border: 2px solid #cfd7e1; box-sizing: border-box; }
+.opt.is-on .chk { border-color: var(--idea); background: radial-gradient(circle, var(--idea) 0 42%, #fff 46%); }
 .msg[hidden] { display: none; }
 .msg.mine .giftcard { display: grid; gap: 2px; background: #fff; color: #111827; border: 1.5px solid var(--idea); border-radius: 14px; border-bottom-right-radius: 4px; padding: 9px 12px; }
 .giftcard b { font-size: 13px; color: var(--idea); }
@@ -788,7 +790,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div><dt>단계</dt><dd>아이디어 · 미구현</dd></div>
         <div><dt>대상</dt><dd>새로운 만남이 어려운 성인</dd></div>
         <div><dt>지도</dt><dd>네이버 · 카카오 지도 API · 제휴 가게 표시</dd></div>
-        <div><dt>수익 구조</dt><dd>메시지 신청 포인트 · 음료 선물 수수료</dd></div>
+        <div><dt>수익 구조</dt><dd>대화 신청 포인트 · 음료 선물 수수료</dd></div>
         <div><dt>핵심 원칙</dt><dd>제휴 가게 안에서만 공개 · 안전 중심</dd></div>
       </dl>
 
@@ -889,8 +891,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
                 <div class="grab"></div>
                 <div class="who"><img id="mPhoto" src="media/m_harin.jpg" alt=""><div><b id="mName">하린 · 27</b><span class="mchips"><span id="mMbti">ENFP</span><span class="gray" id="mSpot">창가 자리</span></span></div><button class="x" id="pClose" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
                 <p id="mIntro">창가 자리에서 책 읽는 중</p>
-                <button class="gift" id="mGift" aria-pressed="false"><span class="gic"><svg viewBox="0 0 24 24"><path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 9h2a2.5 2.5 0 0 1 0 5h-2M7 3v2M10 3v2M13 3v2"/></svg></span><span class="gt"><b>음료와 함께 신청</b><small>아메리카노 4,500원 · 거절되면 환불</small></span><i class="chk"></i></button>
-                <button class="meet-send" id="mSend">메시지 신청 · 10포인트</button>
+                <div class="opts" role="radiogroup" aria-label="신청 방법">
+                  <button class="opt" data-gift="1" role="radio" aria-checked="false"><span class="oic"><svg viewBox="0 0 24 24"><path d="M4 8h12v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5zM16 9h2a2.5 2.5 0 0 1 0 5h-2M7 3v2M10 3v2M13 3v2"/></svg></span><b>음료와 함께 신청</b><small>아메리카노 4,500원</small><small class="pay">수락하면 결제</small><i class="chk"></i></button>
+                  <button class="opt is-on" data-gift="0" role="radio" aria-checked="true"><span class="oic"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></span><b>대화 신청</b><small>10포인트</small><small class="pay">수락하면 대화 시작</small><i class="chk"></i></button>
+                </div>
+                <button class="meet-send" id="mSend">대화 신청 · 10포인트</button>
                 <p class="mstate" id="mState"></p>
               </div>
             </section>
@@ -921,11 +926,11 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <li><div><b>제휴 가게에서 QR 체크인</b><span>카페 · 보드게임 카페 · 공방 · 식당 등 제휴 가게 안에서만 시작할 수 있습니다</span></div></li>
           <li><div><b>가게 배치도에서 사람 확인</b><span>체크인한 사람만 배치도 위에 프로필 사진으로 표시되고, 계산대 앞 · 테이블 등 실제로 있는 자리를 따라 움직입니다. 가게를 나가거나 2시간이 지나면 자동으로 사라집니다</span></div></li>
           <li><div><b>프로필 확인</b><span>사진을 누르면 MBTI · 자기소개 · 지금 있는 자리 확인</span></div></li>
-          <li><div><b>포인트 또는 음료 선물로 신청</b><span>포인트로 메시지를 신청하거나, 그 가게 음료 한 잔과 함께 신청 · 거절되면 환불</span></div></li>
+          <li><div><b>대화 신청 또는 음료와 함께 신청</b><span>포인트로 대화를 신청하거나, 그 가게 음료 한 잔과 함께 신청 · 음료값은 상대가 수락할 때 결제되어 환불이 필요 없음</span></div></li>
           <li><div><b>수락 후 대화 · 바로 인사</b><span>서로 수락하면 대화하고, 같은 가게 안에서 바로 만남</span></div></li>
         </ol>
       </div>
-      <p class="figcap">위 시안은 직접 눌러 볼 수 있습니다: 지도에서 가게 고르기 → QR 체크인 → 가게 배치도에서 사람 사진 누르기 → 음료와 함께 신청 → 대화하기. 배치도의 사람들은 계산대와 자리를 오가며 움직입니다. 인물 사진은 AI로 만든 가상 인물입니다.</p>
+      <p class="figcap">위 시안은 직접 눌러 볼 수 있습니다: 지도에서 가게 고르기 → QR 체크인 → 가게 배치도에서 사람 사진 누르기 → 신청 방법 고르기(음료와 함께 신청 · 대화 신청) → 대화하기. 배치도의 사람들은 계산대와 자리를 오가며 움직입니다. 인물 사진은 AI로 만든 가상 인물입니다.</p>
 
       <div class="blocks">
         <div class="block rise">
@@ -936,6 +941,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
           <h4>안전 설계</h4>
           <ul>
             <li>길에서는 위치가 보이지 않습니다. 제휴 가게에 QR로 체크인했을 때만 같은 가게 안 사람끼리 보이고, 가게를 나가거나 2시간이 지나면 자동으로 꺼집니다.</li>
+            <li>가게 안 위치는 서버에 쌓아 두지 않고 체크아웃하면 바로 지웁니다. 법으로 정한 위치 이용 기록만 6개월 보관합니다.</li>
             <li>제휴 가게는 카페 · 보드게임 카페 · 공방 · 식당처럼 밝고 직원이 있는 곳으로 하고, 술집 · 클럽은 제외합니다.</li>
             <li>가입 시 실명 · 성인 인증과 프로필 사진 등록을 필수로 하고, 차단 · 신고 기능을 둡니다.</li>
             <li>성범죄 이력 확인은 법이 허용하는 범위에서 도입을 검토합니다.</li>
@@ -953,8 +959,8 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
         <div class="block rise">
           <h4>수익 구조</h4>
           <ul>
-            <li>메시지 신청 시 사용하는 포인트</li>
-            <li>음료 선물 결제 수수료</li>
+            <li>대화 신청 시 사용하는 포인트</li>
+            <li>음료 선물 결제 수수료 (상대가 수락할 때 결제)</li>
             <li>제휴 가게 수수료 · 지도 노출 광고</li>
           </ul>
         </div>
@@ -971,7 +977,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
             <li>위치 정보를 다루기 위한 위치기반서비스 사업 신고 등 법적 절차</li>
             <li>성범죄 이력을 확인할 수 있는 법적 범위 검토</li>
             <li>제휴 가게 모집과 가게 안 위치 측정 방식 (QR 체크인 · 블루투스 비콘)</li>
-            <li>음료 선물 결제를 위한 결제 대행 계약</li>
+            <li>수락할 때 결제되는 음료 선물을 위한 결제 대행 계약</li>
           </ul>
         </div>
       </div>
@@ -1182,7 +1188,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
   if (!reduce) setInterval(buy, 3000);
 
   /* @meet-js */
-  /* 05 실시간 만남 앱 시안: 지도에서 가게 고르기 → QR 체크인 → 가게 배치도의 사람 → 메시지 신청 → 수락 후 대화 */
+  /* 05 실시간 만남 앱 시안: 지도에서 가게 고르기 → QR 체크인 → 가게 배치도의 사람 → 신청 방법 고르기 → 수락 후 대화 */
   (function () {
     var phone = document.getElementById('meetPhone');
     if (!phone) return;
@@ -1197,7 +1203,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
     ];
     var vi = 0, pick = null, timer = null, gift = false;
     var vpins = phone.querySelectorAll('.vpin'), cards = phone.querySelectorAll('.pcard'), pins = phone.querySelectorAll('.pin');
-    var vCheck = $('vCheck'), pSheet = $('pSheet'), mSend = $('mSend'), mState = $('mState'), tog = $('meetToggle'), mGift = $('mGift');
+    var vCheck = $('vCheck'), pSheet = $('pSheet'), mSend = $('mSend'), mState = $('mState'), tog = $('meetToggle'), opts = phone.querySelectorAll('.opt');
     var plan = $('mPlan'), people = $('people'), segs = phone.querySelectorAll('.seg button');
 
     /* 가게 배치도: 좌표는 배치도 그림(300 × 410) 기준. 있는 자리 이름은 프로필에 함께 표시 */
@@ -1254,7 +1260,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       $('vName').textContent = venues[i].name; $('vSub').textContent = venues[i].sub; $('vTag').textContent = venues[i].tag;
     }
     function resetSend() {
-      clearTimeout(timer); mSend.disabled = false; mGift.disabled = false; mSend.textContent = gift ? '음료와 함께 신청 · 4,500원' : '메시지 신청 · 10포인트'; mSend.onclick = send; mState.textContent = '';
+      clearTimeout(timer); mSend.disabled = false; opts.forEach(function (o) { o.disabled = false; }); mSend.textContent = gift ? '음료와 함께 신청 · 수락 시 결제' : '대화 신청 · 10포인트'; mSend.onclick = send; mState.textContent = '';
     }
     function openProfile(c) {
       var i = Array.prototype.indexOf.call(cards, c);
@@ -1265,17 +1271,21 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       $('mSpot').textContent = spot[i];
       setGift(false); pSheet.hidden = false; resetSend();
     }
-    function setGift(on) { gift = on; mGift.classList.toggle('is-on', on); mGift.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+    /* 음료값은 신청할 때가 아니라 상대가 수락할 때 결제 */
+    function setGift(on) {
+      gift = on;
+      opts.forEach(function (o) { var me = (o.dataset.gift === '1') === on; o.classList.toggle('is-on', me); o.setAttribute('aria-checked', me ? 'true' : 'false'); });
+    }
     function closeProfile() {
       pSheet.hidden = true; hold = -1; resetSend();
       cards.forEach(function (x) { x.classList.remove('sel'); }); pins.forEach(function (p) { p.classList.remove('sel'); });
     }
     function accepted() {
-      mState.textContent = '수락되었습니다';
+      mState.textContent = gift ? '수락되어 4,500원이 결제되었습니다' : '수락되었습니다';
       mSend.disabled = false; mSend.textContent = '대화하기'; mSend.onclick = openChat;
     }
     function send() {
-      mSend.disabled = true; mGift.disabled = true; mSend.textContent = '신청을 보냈습니다'; mState.textContent = gift ? '음료 선물과 함께 보냈습니다 · 수락을 기다리는 중' : '상대의 수락을 기다리는 중';
+      mSend.disabled = true; opts.forEach(function (o) { o.disabled = true; }); mSend.textContent = '신청을 보냈습니다'; mState.textContent = gift ? '상대가 수락하면 4,500원이 결제됩니다' : '상대의 수락을 기다리는 중';
       timer = setTimeout(accepted, 1600);
     }
     function openChat() {
@@ -1316,7 +1326,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
       closeProfile();
     });
     mSend.onclick = send;
-    mGift.addEventListener('click', function () { setGift(!gift); resetSend(); });
+    opts.forEach(function (o) { o.addEventListener('click', function () { setGift(o.dataset.gift === '1'); resetSend(); }); });
 
     start.forEach(function (p, i) { put(i, p, 0); });
     if (!still) { run(1); run(4); }
